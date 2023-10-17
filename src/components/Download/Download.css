@@ -1,0 +1,5 @@
+.download {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}

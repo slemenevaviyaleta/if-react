@@ -1,0 +1,23 @@
+.hotel-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 80px;
+}
+
+.available__hotels {
+    padding: 60px 100px;
+}
+
+.available__hotels__title {
+    text-align: center;
+    margin-bottom: 106px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: var(--unitless-value);
+    color: var(--text-color)
+}
+
+.js__hidden {
+    display: none;
+}

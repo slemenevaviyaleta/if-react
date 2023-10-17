@@ -1,0 +1,35 @@
+.top-section {
+    margin-bottom: 120px;
+}
+
+.top-section__title {
+    margin-bottom: 145px;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: var(--unitless-value);
+    color: var(--white);
+    white-space: pre-line;
+}
+
+.new-line {
+    display: block;
+}
+
+.top-section__form__label {
+    display: flex;
+    color: var(--white);
+    gap: 221px;
+    margin-left: 24px;
+    font-size: 18px;
+    line-height: var(--unitless-value);
+    margin-bottom: 24px;
+}
+
+.top-section__form {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    background-color: var(--white);
+    border-radius: 8px;
+    max-height: 68px;
+}

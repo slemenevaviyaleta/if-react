@@ -1,0 +1,7 @@
+.main {
+    background-image: url('./background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 51px;
+    padding-bottom: var(--container-pad-btm-top);
+}
