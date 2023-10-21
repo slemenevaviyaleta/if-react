@@ -5,12 +5,12 @@ import { Download } from '../Download';
 import { Container } from '../Container';
 import './Main.css';
 
-export const Main = () => {
+export const Main = ({ setHotels }) => {
     return (
         <main className="main">
             <Container>
                 <Header />
-                <TopSection />
+                <TopSection setHotels={setHotels} />
                 <Download />
             </Container>
         </main>

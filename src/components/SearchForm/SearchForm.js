@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
 import './SearchForm.css';
-import { HotelsSection } from '../AvailableHotels';
 
-export const SearchForm = () => {
-    const [hotels, setHotels] = useState([]);
+export const SearchForm = ({ setHotels }) => {
     const [searchValue, setSearchValue] = useState('');
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
         const apiUrl = `https://if-student-api.onrender.com/api/hotels?search=${searchValue}`;
+        console.log('API URL:', apiUrl);
 
         fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
+                console.log('API Response:', data);
                 setHotels(data);
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Ошибка:', error);
                 setHotels([]);
             });
     };
 
     return (
         <div>
-            <form className="top-section__form form-lg">
+            <form className="top-section__form form-lg" onSubmit={(e) => {
+                e.preventDefault();
+                handleSearch();
+            }}>
                 <div className="form__field form__field-destination">
                     <label
                         className="form__label top-section__form__label"
@@ -63,11 +66,10 @@ export const SearchForm = () => {
                         id="guests"
                     />
                 </div>
-                <button className="form__btn" type="submit" id="search__btn-js" onClick={handleSearch}>
+                <button className="form__btn" type="submit" id="search__btn-js">
                     Search
                 </button>
             </form>
-            <HotelsSection hotels={hotels} />
         </div>
     );
 }

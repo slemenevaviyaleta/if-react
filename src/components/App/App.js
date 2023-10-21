@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Favorites} from '../Favorites';
 import {Main} from '../Main';
 import {HotelsSection} from '../AvailableHotels';
@@ -15,12 +15,14 @@ import '../AvailableHotels/AvailableHotels.css';
 import './App.css';
 
 function App() {
+    const [hotels, setHotels] = useState([]);
+
     return (
         <div>
-            <Sprite/>
-            <Main/>
-            <HotelsSection/>
-            <Favorites/>
+            <Sprite />
+            <Main setHotels={setHotels} />
+            <HotelsSection hotels={hotels} />
+            <Favorites />
         </div>
     );
 }
