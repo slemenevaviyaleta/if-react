@@ -1,10 +1,11 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {memo, useEffect, useRef, useState} from 'react';
+import PropTypes from 'prop-types';
 import './SearchForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-export const SearchForm = ({setHotels}) => {
+export const SearchForm = memo(({setHotels}) => {
     const [searchValue, setSearchValue] = useState('');
     const [selectedDate, setSelectedDate] = useState(null);
     const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -28,7 +29,6 @@ export const SearchForm = ({setHotels}) => {
             }
         }
 
-        // Обновляем placeholder в зависимости от значений adults, children и rooms
         setPlaceholderText(`${adultsNum} Adults — ${childNum} Children — ${roomNum} Room`);
     }, [isFilterVisible, adultsButtonRef, roomButtonRef, adultsNum, childNum, roomNum]);
 
@@ -38,7 +38,7 @@ export const SearchForm = ({setHotels}) => {
 
 
 
-const handleIncrement = (setter, maxValue) => {
+    const handleIncrement = (setter, maxValue) => {
         setter((prevValue) => (prevValue < maxValue ? prevValue + 1 : prevValue));
     };
 
@@ -192,6 +192,8 @@ const handleIncrement = (setter, maxValue) => {
             </form>
         </div>
     );
-}
+});
 
-
+SearchForm.propTypes = {
+    setHotels: PropTypes.func.isRequired,
+};

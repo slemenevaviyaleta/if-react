@@ -1,6 +1,7 @@
 import React from 'react';
 import './TopSection.css';
 import {SearchForm} from "../SearchForm";
+import PropTypes from "prop-types";
 
 export const TopSection = ({ setHotels }) => {
     return (
@@ -15,3 +16,7 @@ export const TopSection = ({ setHotels }) => {
         </section>
     );
 }
+
+TopSection.propTypes = {
+    setHotels: PropTypes.func.isRequired,
+};
