@@ -43,3 +43,23 @@
     background-color: var(--blue);
     padding: 20px 57px;
 }
+
+.form__field-date {
+    position: relative;
+}
+
+.react-datepicker {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.form__field-date {
+    position: relative;
+}
+
+.react-datepicker {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}

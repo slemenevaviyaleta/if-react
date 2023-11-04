@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './SearchForm.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const SearchForm = ({ setHotels }) => {
     const [searchValue, setSearchValue] = useState('');
+    const [selectedDate, setSelectedDate] = useState(null);
 
     const handleSearch = (e) => {
-        const apiUrl = `https://if-student-api.onrender.com/api/hotels?search=${searchValue}`;
+        e.preventDefault();
+        const apiUrl = `https://if-student-api.onrender.com/api/hotels?search=${searchValue}&checkin=${selectedDate}`;
         console.log('API URL:', apiUrl);
 
         fetch(apiUrl)
@@ -22,10 +26,7 @@ export const SearchForm = ({ setHotels }) => {
 
     return (
         <div>
-            <form className="top-section__form form-lg" onSubmit={(e) => {
-                e.preventDefault();
-                handleSearch();
-            }}>
+            <form className="top-section__form form-lg" onSubmit={handleSearch}>
                 <div className="form__field form__field-destination">
                     <label
                         className="form__label top-section__form__label"
@@ -48,14 +49,14 @@ export const SearchForm = ({ setHotels }) => {
                         className="form__label top-section__form__label"
                         htmlFor="date"
                     >
-                        Check-in &mdash; Check-out
+                        Check-in
                     </label>
-                    <input
+                    <DatePicker
                         className="form__input form__input-date"
-                        type="text"
                         id="date"
-                        name="date"
-                        placeholder="Tue 15 Sept - Sat 19 Sept"
+                        selected={selectedDate}
+                        onChange={date => setSelectedDate(date)}
+                        placeholderText="Tue 15 Sept - Sat 19 Sept"
                     />
                 </div>
                 <div className="form__field form__field-people" id="guestField">
@@ -73,4 +74,5 @@ export const SearchForm = ({ setHotels }) => {
         </div>
     );
 }
+
 

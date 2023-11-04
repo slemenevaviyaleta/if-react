@@ -22,3 +22,13 @@
 .js__hidden {
     display: none;
 }
+
+.form__field-date {
+    position: relative;
+}
+
+.react-datepicker {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
