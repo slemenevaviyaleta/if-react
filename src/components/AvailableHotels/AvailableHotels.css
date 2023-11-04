@@ -32,3 +32,55 @@
     top: 100%;
     left: 0;
 }
+
+.filter-container {
+    position: absolute;
+    top: 78%;
+    left: 59%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__wrapper {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px;
+    border-radius: 8px;
+}
+
+.filter__span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    margin-right: 61px;
+}
+
+.filter__btn {
+    padding: 5px 10px;
+    border-radius: 1px;
+    background-color: var(--white);
+    border-color: #CECECE;
+    color: #CECECE;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 12px;
+}
+
+.num {
+    margin: 0 20px;
+}
+
+.vertical-select {
+    display: block;
+    padding: 5px;
+    margin-top: 2px;
+}
+
+
+.date-range-horizontal {
+    display: flex;
+    gap: 10px;
+}
+
+
