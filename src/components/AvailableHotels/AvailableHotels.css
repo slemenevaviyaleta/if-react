@@ -19,9 +19,6 @@
     color: var(--text-color)
 }
 
-.js__hidden {
-    display: none;
-}
 
 .form__field-date {
     position: relative;

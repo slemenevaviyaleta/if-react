@@ -1,11 +1,12 @@
 import React from 'react';
 import './Loader.css';
 
-const Loader = () => {
+export const Loader = () => {
     return (
         <div className="loader-container">
-            <div className="loader"></div>
-            <div className="loader-text">Loading...</div>
+            <div className="loader">
+                <div className="loader-text">Loading...</div>
+            </div>
         </div>
     );
 };

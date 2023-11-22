@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
+import { Modal } from '../Modal/Modal';
 
 export const Header = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
     return (
         <header className="header">
             <nav className="header__navbar">
@@ -16,7 +23,8 @@ export const Header = () => {
                             Stays
                         </a>
                         <a href="#!" className="header__link">
-                            Attractions                         </a>
+                            Attractions
+                        </a>
                     </div>
                     <div className="header__menu-buttons">
                         <a href="#!" className="header__btn">
@@ -24,11 +32,14 @@ export const Header = () => {
                                 <use href="#night" />
                             </svg>
                         </a>
-                        <a href="#!" className="header__btn">
+                        <button
+                            className={`header__btn ${isModalOpen ? 'btn-yellow' : 'btn-white'}`}
+                            onClick={toggleModal}
+                        >
                             <svg className="svg-account">
                                 <use href="#account" />
                             </svg>
-                        </a>
+                        </button>
                         <a href="#!" className="header__btn">
                             <svg className="svg-menu">
                                 <use href="#menu" />
@@ -37,6 +48,8 @@ export const Header = () => {
                     </div>
                 </div>
             </nav>
+            <Modal isOpen={isModalOpen} onClose={toggleModal} />
         </header>
     );
-}
+};
+

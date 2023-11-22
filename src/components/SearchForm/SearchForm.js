@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './SearchForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import {buildHotelsApiUrl} from "../services/constants";
 
 
 export const SearchForm = memo(({setHotels}) => {
@@ -78,7 +79,7 @@ export const SearchForm = memo(({setHotels}) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        const apiUrl = `https://if-student-api.onrender.com/api/hotels?search=${searchValue}&checkin=${selectedDate}`;
+        const apiUrl = buildHotelsApiUrl(searchValue, selectedDate);
         console.log('API URL:', apiUrl);
 
         fetch(apiUrl)

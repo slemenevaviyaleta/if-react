@@ -6,9 +6,9 @@ export const Download = () => {
         <section className="download">
             <div className="download__google">
                 <a href="#!" className="download__button">
-                    <div className="svg-google">
-                        <img alt="google" src="../images/google.svg" />
-                    </div>
+                    <svg className="svg-google" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#google" />
+                    </svg>
                 </a>
             </div>
             <div className="download__apple">
