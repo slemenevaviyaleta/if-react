@@ -1,10 +1,12 @@
 import React from 'react';
-import './Container.css';
 import classNames from "classnames";
+import {useContainerStyles} from "./Container.styles";
 
-export const Container = ({ children, className }) => {
+export const Container = ({children, className}) => {
+    const classes = useContainerStyles();
+    const combinedClasses = classNames('container', className, classes);
     return (
-        <div className={classNames('container', className)}>
+        <div className={combinedClasses}>
             {children}
         </div>
     );

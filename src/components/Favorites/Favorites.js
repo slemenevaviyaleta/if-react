@@ -1,5 +1,7 @@
 import React from 'react';
 import FavoritesCarousel from './FavoritesCarousel';
+import {useFavoriteStyles} from "./Favorites.styles";
+import {useContainerStyles} from "../Container/Container.styles";
 
 const data = [
     {
@@ -61,10 +63,12 @@ const data = [
 ];
 
 export function Favorites() {
+    const classes = useFavoriteStyles();
+    const container = useContainerStyles();
     return (
-        <section className="favorites">
-            <div className="container">
-                <h2 className="favorites__title">Homes guests love</h2>
+        <section className={classes.favorites}>
+            <div className={container.container}>
+                <h2 className={classes.favoritesTitle}>Homes guests love</h2>
                 <FavoritesCarousel data={data} />
             </div>
         </section>

@@ -1,16 +1,17 @@
 import React from 'react';
-import './TopSection.css';
 import {SearchForm} from "../SearchForm";
 import PropTypes from "prop-types";
+import {useTopSectionStyles} from "./TopSection.styles";
 
 export const TopSection = ({ setHotels }) => {
+    const classes = useTopSectionStyles();
     return (
-        <section className="top-section">
-            <h1 className="top-section__title">
+        <section className={classes.topSection}>
+            <h1 className={classes.topSectionTitle}>
                 Discover places
-                <span className="new-line">to live, work or just relax</span>
+                <span className={classes.newLine}>to live, work or just relax</span>
             </h1>
-            <div className="js__form-wrapper">
+            <div className={classes.jsFormWrapper}>
                 <SearchForm setHotels={setHotels} />
             </div>
         </section>

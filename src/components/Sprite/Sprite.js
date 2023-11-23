@@ -1,6 +1,6 @@
 import React from "react";
 
-import './Sprite.css';
+import {useSpriteStyles} from "./Sprite.styles";
 
 export const Sprite = () => (
     <svg className="svg-sprite" xmlns="http://www.w3.org/2000/svg">
@@ -23,18 +23,18 @@ export const Sprite = () => (
                 fill="#A6A6A6"/>
             <path
                 d="M47.42 10.2399C47.42 11.0799 47.17 11.7499 46.67 12.2399C46.11 12.8299 45.37 13.1299 44.47 13.1299C43.6 13.1299 42.87 12.8299 42.26 12.2299C41.65 11.6299 41.35 10.8799 41.35 9.99991C41.35 9.1099 41.65 8.36989 42.26 7.76988C42.87 7.16988 43.6 6.86987 44.47 6.86987C44.9 6.86987 45.31 6.94987 45.7 7.11988C46.09 7.28988 46.4 7.50988 46.64 7.78988L46.11 8.31989C45.71 7.84988 45.17 7.60988 44.47 7.60988C43.84 7.60988 43.29 7.82988 42.83 8.27989C42.37 8.7199 42.14 9.2999 42.14 10.0099C42.14 10.7199 42.37 11.2999 42.83 11.7399C43.29 12.1799 43.84 12.4099 44.47 12.4099C45.14 12.4099 45.7 12.1899 46.15 11.7399C46.44 11.4499 46.61 11.0399 46.65 10.5199H44.47V9.79991H47.38C47.4 9.94991 47.42 10.0999 47.42 10.2399Z"
-                fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
+                fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
             <path d="M52.03 7.73988H49.3V9.63988H51.76V10.3599H49.3V12.2599H52.03V12.9999H48.53V6.99988H52.03V7.73988Z"
-                  fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
+                  fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
             <path d="M55.28 12.9999H54.51V7.73988H52.83V6.99988H56.95V7.73988H55.27V12.9999H55.28Z" fill="white"
-                  stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
-            <path d="M59.94 12.9999V6.99988H60.71V12.9999H59.94Z" fill="white" stroke="white" stroke-width="0.2"
-                  stroke-miterlimit="10"/>
+                  stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
+            <path d="M59.94 12.9999V6.99988H60.71V12.9999H59.94Z" fill="white" stroke="white" strokeWidth="0.2"
+                  strokeMiterlimit="10"/>
             <path d="M64.13 12.9999H63.36V7.73988H61.68V6.99988H65.8V7.73988H64.12V12.9999H64.13Z" fill="white"
-                  stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
+                  stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
             <path
                 d="M73.61 12.2199C73.02 12.8299 72.29 13.1299 71.41 13.1299C70.53 13.1299 69.8 12.8299 69.21 12.2199C68.62 11.6099 68.33 10.8699 68.33 9.99991C68.33 9.1299 68.62 8.37989 69.21 7.77988C69.8 7.16988 70.53 6.86987 71.41 6.86987C72.28 6.86987 73.01 7.16988 73.61 7.77988C74.2 8.38989 74.5 9.1299 74.5 9.99991C74.49 10.8799 74.2 11.6199 73.61 12.2199ZM69.78 11.7199C70.22 12.1699 70.77 12.3899 71.41 12.3899C72.05 12.3899 72.6 12.1699 73.04 11.7199C73.48 11.2699 73.71 10.6999 73.71 9.99991C73.71 9.2999 73.49 8.7299 73.04 8.27989C72.6 7.82988 72.05 7.60988 71.41 7.60988C70.77 7.60988 70.22 7.82988 69.78 8.27989C69.34 8.7299 69.11 9.2999 69.11 9.99991C69.11 10.6999 69.34 11.2699 69.78 11.7199Z"
-                fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
+                fill="white" stroke="white" strokeWidth="0.2" strokeMiterlimit="10"/>
             <path
                 d="M75.58 12.9999V6.99988H76.52L79.44 11.6699H79.47L79.44 10.5099V6.99988H80.21V12.9999H79.41L76.36 8.10988H76.33L76.36 9.26988V12.9999H75.58Z"
                 fill="white" stroke="white" stroke-width="0.2" stroke-miterlimit="10"/>
@@ -66,32 +66,32 @@ export const Sprite = () => (
             <defs>
                 <linearGradient id="paint0_linear_32462_334" x1="21.7997" y1="8.70967" x2="5.01737" y2="25.4921"
                                 gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00A0FF"/>
-                    <stop offset="0.00657445" stop-color="#00A1FF"/>
-                    <stop offset="0.2601" stop-color="#00BEFF"/>
-                    <stop offset="0.5122" stop-color="#00D2FF"/>
-                    <stop offset="0.7604" stop-color="#00DFFF"/>
-                    <stop offset="1" stop-color="#00E3FF"/>
+                    <stop stopColor="#00A0FF"/>
+                    <stop offset="0.00657445" stopColor="#00A1FF"/>
+                    <stop offset="0.2601" stopColor="#00BEFF"/>
+                    <stop offset="0.5122" stopColor="#00D2FF"/>
+                    <stop offset="0.7604" stopColor="#00DFFF"/>
+                    <stop offset="1" stopColor="#00E3FF"/>
                 </linearGradient>
                 <linearGradient id="paint1_linear_32462_334" x1="33.8344" y1="20.0013" x2="9.63756" y2="20.0013"
                                 gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#FFE000"/>
-                    <stop offset="0.4087" stop-color="#FFBD00"/>
-                    <stop offset="0.7754" stop-color="#FFA500"/>
-                    <stop offset="1" stop-color="#FF9C00"/>
+                    <stop stopColor="#FFE000"/>
+                    <stop offset="0.4087" stopColor="#FFBD00"/>
+                    <stop offset="0.7754" stopColor="#FFA500"/>
+                    <stop offset="1" stopColor="#FF9C00"/>
                 </linearGradient>
                 <linearGradient id="paint2_linear_32462_334" x1="24.827" y1="22.2961" x2="2.06875" y2="45.0544"
                                 gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#FF3A44"/>
-                    <stop offset="1" stop-color="#C31162"/>
+                    <stop stopColor="#FF3A44"/>
+                    <stop offset="1" stopColor="#C31162"/>
                 </linearGradient>
                 <linearGradient id="paint3_linear_32462_334" x1="7.29727" y1="0.176203" x2="17.4598" y2="10.3387"
                                 gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#32A071"/>
-                    <stop offset="0.0685" stop-color="#2DA771"/>
-                    <stop offset="0.4762" stop-color="#15CF74"/>
-                    <stop offset="0.8009" stop-color="#06E775"/>
-                    <stop offset="1" stop-color="#00F076"/>
+                    <stop stopColor="#32A071"/>
+                    <stop offset="0.0685" stopColor="#2DA771"/>
+                    <stop offset="0.4762" stopColor="#15CF74"/>
+                    <stop offset="0.8009" stopColor="#06E775"/>
+                    <stop offset="1" stopColor="#00F076"/>
                 </linearGradient>
             </defs>
         </symbol>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import FavoriteCard from './FavoriteCard';
+import {useFavoriteStyles} from "./Favorites.styles";
+
 
 function FavoritesCarousel({ data }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,9 +15,11 @@ function FavoritesCarousel({ data }) {
 
     const visibleData = data.slice(0, currentIndex + 4);
 
+    const classes = useFavoriteStyles();
+
     return (
-        <div className="favorites__carousel">
-            <ul className="favorites__row">
+        <div className={classes.favoritesCarousel}>
+            <ul className={classes.favoritesRow}>
                 {visibleData.map((item) => (
                     <FavoriteCard
                         key={item.id}
@@ -26,7 +30,7 @@ function FavoritesCarousel({ data }) {
                 ))}
             </ul>
             {currentIndex < data.length && (
-                <button aria-label="next" className="favorites__btn-ellipse" type="button" onClick={showNextImage}>
+                <button aria-label="next" className={classes.favoritesBtnEllipse} type="button" onClick={showNextImage}>
                     <svg className="svg-fav arrow-btn">
                         <use href="#arrowFav" />
                     </svg>

@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useFavoriteStyles} from "./Favorites.styles";
 
 function FavoriteCard({ imageUrl, name, location }) {
+    const classes = useFavoriteStyles();
     return (
-        <div className="favorites__card">
-            <img src={imageUrl} className="favorites__img" alt={name} />
-            <a href="#" className="favorites__link">{name}</a>
-            <p className="favorites__caption">{location}</p>
+        <div className={classes.favoritesCard}>
+            <img src={imageUrl} className={classes.favoritesImg} alt={name} />
+            <a href="#" className={classes.favoritesLink}>{name}</a>
+            <p className={classes.favoritesCaption}>{location}</p>
         </div>
     );
 }

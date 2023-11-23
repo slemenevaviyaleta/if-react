@@ -1,9 +1,9 @@
 import React, {memo, useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import './SearchForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {buildHotelsApiUrl} from "../services/constants";
+import {useSearchFormStyles} from "./SearchForm.styles";
 
 
 export const SearchForm = memo(({setHotels}) => {
@@ -14,6 +14,7 @@ export const SearchForm = memo(({setHotels}) => {
     const [childNum, setChildNum] = useState(0);
     const [roomNum, setRoomNum] = useState(1);
     const [childAges, setChildAges] = useState([]);
+    const classes = useSearchFormStyles();
 
     const adultsButtonRef = useRef(null);
     const roomButtonRef = useRef(null);
@@ -96,16 +97,16 @@ export const SearchForm = memo(({setHotels}) => {
 
     return (
         <div>
-            <form className="top-section__form form-lg" onSubmit={handleSearch}>
-                <div className="form__field form__field-destination">
+            <form className={classes.topSectionForm} onSubmit={handleSearch}>
+                <div className={`${classes.formField} ${classes.formFieldDestination}`}>
                     <label
-                        className="form__label top-section__form__label"
+                        className={`${classes.formLabel} ${classes.topSectionFormLabel}`}
                         htmlFor="destination"
                     >
                         Your destination or hotel name
                     </label>
                     <input
-                        className="form__input form__input-destination"
+                        className={`${classes.formInput} ${classes.formInputDestination}`}
                         type="text"
                         id="destination"
                         name="city"
@@ -114,23 +115,23 @@ export const SearchForm = memo(({setHotels}) => {
                         onChange={(e) => setSearchValue(e.target.value)}
                     />
                 </div>
-                <div className="form__field form__field-date">
+                <div className={`${classes.formField} ${classes.formFieldDate}`}>
                     <label
-                        className="form__label top-section__form__label"
+                        className={`${classes.formLabel} ${classes.topSectionFormLabel}`}
                         htmlFor="date"
                     >
                         Check-in — Check-out </label>
                     <DatePicker
-                        className="form__input form__input-date"
+                        className={`${classes.formInput} ${classes.formInputDate}`}
                         id="date"
                         selected={selectedDate}
                         onChange={date => setSelectedDate(date)}
                         placeholderText="Tue 15 Sept - Sat 19 Sept"
                     />
                 </div>
-                <div className="form__field form__field-people" id="guestField" onClick={handleToggleFilter}>
+                <div className={`${classes.formField} ${classes.formFieldPeople}`} id="guestField" onClick={handleToggleFilter}>
                     <input
-                        className="form__input form__input-people"
+                        className={`${classes.formInput} ${classes.formInputPeople}`}
                         type="text"
                         name="guests"
                         id="guests"
@@ -138,42 +139,42 @@ export const SearchForm = memo(({setHotels}) => {
                     />
                 </div>
                 {isFilterVisible && (
-                    <div className="filter-container">
-                        <div className="filter__wrapper">
+                    <div className={classes.filterContainer}>
+                        <div className={classes.filterWrapper}>
                             <div>
-                                <span className="filter__span">Adults</span>
-                                <button className="filter__btn" onClick={() => handleDecrement(setAdultsNum, 1)}
+                                <span className={classes.filterSpan}>Adults</span>
+                                <button className={classes.filterBtn} onClick={() => handleDecrement(setAdultsNum, 1)}
                                         ref={adultsButtonRef}>-
                                 </button>
-                                <span className="num">{adultsNum}</span>
-                                <button className="filter__btn" onClick={() => handleIncrement(setAdultsNum, 30)}>+
+                                <span className={classes.num}>{adultsNum}</span>
+                                <button className={classes.filterBtn} onClick={() => handleIncrement(setAdultsNum, 30)}>+
                                 </button>
                             </div>
                             <div>
-                                <span className="filter__span">Children</span>
-                                <button className="filter__btn" onClick={handleDecrementChild}>-</button>
-                                <span className="num">{childNum}</span>
-                                <button className="filter__btn" onClick={handleIncrementChild}>+</button>
+                                <span className={classes.filterSpan}>Children</span>
+                                <button className={classes.filterBtn} onClick={handleDecrementChild}>-</button>
+                                <span className={classes.num}>{childNum}</span>
+                                <button className={classes.filterBtn} onClick={handleIncrementChild}>+</button>
                             </div>
                             <div>
-                                <span className="filter__span">Rooms</span>
-                                <button className="filter__btn" onClick={() => handleDecrement(setRoomNum, 1)}
+                                <span className={classes.filterSpan}>Rooms</span>
+                                <button className={classes.filterBtn} onClick={() => handleDecrement(setRoomNum, 1)}
                                         ref={roomButtonRef}>-
                                 </button>
-                                <span className="num">{roomNum}</span>
-                                <button className="filter__btn" onClick={() => handleIncrement(setRoomNum, 30)}>+
+                                <span className={classes.num}>{roomNum}</span>
+                                <button className={classes.filterBtn} onClick={() => handleIncrement(setRoomNum, 30)}>+
                                 </button>
                             </div>
                             {childNum > 0 && (
                                 <div>
                                     <p>What is the age of the child you’re
-                                        <span className="new-line">traveling with?</span></p>
+                                        <span className={classes.newLine}>traveling with?</span></p>
                                     {childAges.map((age, index) => (
                                         <select
                                             key={index}
                                             value={age}
                                             onChange={(e) => handleUpdateChildAge(index, parseInt(e.target.value))}
-                                            className="vertical-select"
+                                            className={classes.verticalSelect}
                                         >
                                             {Array.from({length: 18}, (_, i) => (
                                                 <option key={i} value={i}>

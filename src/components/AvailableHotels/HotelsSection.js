@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
 import {Hotels} from "./Hotels";
-import './AvailableHotels.css'
+import {useHotelsStyles} from "./Hotels.styles";
 export const HotelsSection = ({hotels}) => {
     const hotelsSectionRef = useRef(null);
+    const classes = useHotelsStyles();
 
     const scrollToHotels = () => {
         if (hotelsSectionRef.current) {
@@ -18,8 +19,8 @@ export const HotelsSection = ({hotels}) => {
 
 
     return (
-        <section className="available__hotels" id="hotels__js" ref={hotelsSectionRef}>
-            <h2 className="available__hotels__title">Available hotels</h2>
+        <section className={classes.availableHotels} id="hotels__js" ref={hotelsSectionRef}>
+            <h2 className={classes.availableHotelsTitle}>Available hotels</h2>
             <Hotels hotels={hotels}/>
         </section>
     );
