@@ -1,9 +1,10 @@
 import {createUseStyles} from "react-jss";
+import {constantsStyles} from "../сonstants/Constants.styles";
 
 const FavoritesStyles = {
     favorites: {
-        backgroundColor: 'var(--background-color)',
-        padding: 'var(--container-pad-btm-top) var(--container-pad-lt-rt)',
+        backgroundColor: constantsStyles.backgroundColor,
+        padding: `${constantsStyles.containerPadBtmTop}px ${constantsStyles.containerPadLtRt}px`,
         position: 'relative',
     },
 
@@ -12,7 +13,7 @@ const FavoritesStyles = {
         marginBottom: 106,
         fontWeight: 500,
         fontSize: 40,
-        lineHeight: 'var(--unitless-value)',
+        lineHeight: constantsStyles.unitlessValue,
     },
 
     favoritesRow: {
@@ -43,10 +44,10 @@ const FavoritesStyles = {
 
     favoritesLink: {
         textDecoration: 'none',
-        color: 'var(--blue)',
+        color: constantsStyles.blue,
         fontWeight: 400,
         fontSize: 24,
-        lineHeight: 'var(--unitless-value)',
+        lineHeight: constantsStyles.unitlessValue,
     },
 
     favoritesImg: {
@@ -62,10 +63,10 @@ const FavoritesStyles = {
     },
 
     favoritesCaption: {
-        color: 'var(--secondary-text)',
+        color: constantsStyles.secondaryText,
         fontWeight: 400,
         fontSize: 24,
-        lineHeight: 'var(--unitless-value)',
+        lineHeight: constantsStyles.unitlessValue,
     },
 
     favoritesBtnEllipse: {
@@ -74,7 +75,7 @@ const FavoritesStyles = {
         alignItems: 'center',
         width: 40,
         height: 40,
-        backgroundColor: 'var(--white)',
+        backgroundColor: constantsStyles.white,
         borderRadius: '50%',
         filter: 'drop-shadow(0 4px 4px rgb(0 0 0 / 25%))',
         position: 'absolute',

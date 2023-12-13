@@ -1,111 +1,52 @@
-.hotel-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 80px;
-}
-
-.available__hotels {
-    padding: 60px 100px;
-}
-
-
-.available__hotels__title {
-    text-align: center;
-    margin-bottom: 106px;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: var(--unitless-value);
-    color: var(--text-color)
-}
-
-
-.form__field-date {
+.homes {
+    background-color: var(--bg-color);
     position: relative;
 }
 
-.react-datepicker {
-    position: absolute;
-    top: 100%;
-    left: 0;
-}
-
-.filter-container {
-    position: absolute;
-    top: 78%;
-    left: 59%;
+.homes__variants,
+.available__hotels {
     display: flex;
     justify-content: space-between;
+    gap: 16px;
 }
 
-.filter__wrapper {
-    background-color: var(--white);
-    display: flex;
-    flex-direction: column;
-    padding: 22px 22px;
-    border-radius: 8px;
+.available__hotels {
+    justify-content: flex-start;
 }
 
-.filter__span {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19px;
-    margin-right: 61px;
+.homes__item {
+    max-width: 25%;
 }
 
-.filter__btn {
-    padding: 5px 10px;
-    border-radius: 1px;
-    background-color: var(--white);
-    border-color: #CECECE;
-    color: #CECECE;
-    font-size: 18px;
-    line-height: 21px;
-    margin-bottom: 12px;
+.homes__image {
+    max-width: 100%;
+    min-width: 296px;
+    height: 296px;
+    margin-bottom: 24px;
+    object-fit: cover;
 }
 
-.num {
-    margin: 0 20px;
+.homes__description {
+    color: var(--accent-blue);
+    margin-bottom: 24px;
+    line-height: 0.5;
 }
 
-.vertical-select {
+.homes__place {
+    color: var(--secondary-text);
+    line-height: 1.5;
+}
+
+.available {
+    display: none;
+}
+
+._visible {
     display: block;
-    padding: 5px;
-    margin-top: 2px;
 }
 
-
-.date-range-horizontal {
-    display: flex;
-    gap: 10px;
-}
-
-
-.loader-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-
-.loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-    color: #61dafb;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loader-text {
-    margin-top: 16px;
-    font-size: 18px;
-    color: #3498db;
+.title {
+    padding-top: 120px;
+    font-size: 40px;
+    font-weight: 500;
 }

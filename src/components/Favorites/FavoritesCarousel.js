@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import FavoriteCard from './FavoriteCard';
-import {useFavoriteStyles} from "./Favorites.styles";
+import { Button } from '../Button/Button';
+import '../Button/Button.css';
+import classNames from 'classnames';
+import './Favorites.css';
 
-
-function FavoritesCarousel({ data }) {
+export const FavoritesCarousel = ({ data, className }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const showNextImage = () => {
@@ -13,41 +14,31 @@ function FavoritesCarousel({ data }) {
         }
     };
 
-    const visibleData = data.slice(0, currentIndex + 4);
-
-    const classes = useFavoriteStyles();
+    const visibleData = data.slice(currentIndex, currentIndex + 4);
 
     return (
-        <div className={classes.favoritesCarousel}>
-            <ul className={classes.favoritesRow}>
-                {visibleData.map((item) => (
-                    <FavoriteCard
-                        key={item.id}
-                        imageUrl={item.imageUrl}
-                        name={item.name}
-                        location={`${item.city}, ${item.country}`}
-                    />
-                ))}
-            </ul>
+        <div className={classNames('description', className)}>
+            {visibleData.map((item) => (
+                <figure key={item.id} className="homes__item _mobile">
+                    <img className="homes__image" src={item.imageUrl} alt={item.name} />
+                    <figcaption className="homes__description">{item.name}</figcaption>
+                    <figcaption className="homes__place">
+                        {item.city}, {item.country}
+                    </figcaption>
+                </figure>
+            ))}
             {currentIndex < data.length && (
-                <button aria-label="next" className={classes.favoritesBtnEllipse} type="button" onClick={showNextImage}>
-                    <svg className="svg-fav arrow-btn">
-                        <use href="#arrowFav" />
-                    </svg>
-                </button>
+                <Button aria-label="next" className="homes__arrow--ellipse" type="button" onClick={showNextImage}>
+                    <div className="homes__arrow--pike"></div>
+                </Button>
             )}
         </div>
     );
-}
-
-FavoritesCarousel.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        city: PropTypes.string.isRequired,
-        country: PropTypes.string.isRequired,
-        imageUrl: PropTypes.string.isRequired,
-    })).isRequired,
 };
 
-export default FavoritesCarousel;
+FavoritesCarousel.propTypes = {
+    data: PropTypes.array.isRequired,
+    className: PropTypes.string,
+};
+
+

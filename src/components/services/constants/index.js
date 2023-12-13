@@ -1,5 +1,7 @@
 export const apiUrl = 'https://if-student-api.onrender.com';
 
-export const buildHotelsApiUrl = (searchValue, selectedDate) => {
-    return `${apiUrl}/api/hotels?search=${searchValue}&checkin=${selectedDate}`;
-};
+export const postsUrl = `${apiUrl}/api/hotels/popular`;
+
+export const searchUrl = `${apiUrl}/api/hotels?search`
+
+

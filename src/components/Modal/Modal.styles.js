@@ -1,4 +1,5 @@
 import {createUseStyles} from "react-jss";
+import {constantsStyles} from "../сonstants/Constants.styles";
 
 const ModalStyles = {
     modal: {
@@ -6,15 +7,14 @@ const ModalStyles = {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        background: 'var(--white)',
+        background: constantsStyles.white,
         padding: '36px 40px',
         borderRadius: 8,
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
         maxWidth: 400,
         width: '100%',
-        color: 'var(--text-color)',
+        color: constantsStyles.textColor,
         maxHeight: 364,
-        height: '100%',
     },
 
     modalOverlay: {
@@ -22,21 +22,10 @@ const ModalStyles = {
         position: 'fixed',
         top: 0,
         left: 0,
+        background: 'url(' + './background.png' + ')',
+        zIndex: -1,
         width: '100%',
         height: '100%',
-        background: `url('./background.png') center center/cover`,
-        zIndex: '-1',
-    },
-
-    modalClose: {
-        position: 'absolute',
-        top: 10,
-        right: 10,
-        fontSize: 18,
-        cursor: 'pointer',
-        background: 'none',
-        border: 'none',
-        color: '#fff',
     },
 
     modalTitle: {
@@ -49,7 +38,7 @@ const ModalStyles = {
         width: '100%',
         height: 41,
         borderRadius: 8,
-        borderColor: 'var(--secondary-text)',
+        borderColor: constantsStyles.secondaryText,
     },
 
     email: {
@@ -60,15 +49,15 @@ const ModalStyles = {
         fontSize: 16,
         fontWeight: 300,
         marginBottom: 8,
-        lineHeight: 19,
+        lineHeight: constantsStyles.unitlessValue,
     },
 
     modalBtn: {
         width: '100%',
-        backgroundColor: 'var(--blue)',
+        backgroundColor: constantsStyles.blue,
         border: 'none',
         borderRadius: 8,
-        color: 'var(--white)',
+        color: constantsStyles.white,
         padding: '12px 121px',
         fontWeight: 500,
         fontSize: 24,

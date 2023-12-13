@@ -1,4 +1,5 @@
 import {createUseStyles} from "react-jss";
+import {constantsStyles} from "../сonstants/Constants.styles";
 
 const SpriteStyles = {
     svgSprite: {
@@ -11,19 +12,19 @@ const SpriteStyles = {
     svgLogo: {
         width: 205,
         height: 40,
-        fill: 'var(--blue)',
+        fill: constantsStyles.blue,
     },
 
     svgNight: {
         width: 30,
         height: 40,
-        fill: 'var(--white)',
+        fill: constantsStyles.white,
     },
 
     svgAccount: {
         height: 40,
         width: 40,
-        fill: 'var(--white)',
+        fill: constantsStyles.white,
     },
 
     svgGoogle: {
@@ -54,7 +55,19 @@ const SpriteStyles = {
     svgLike: {
         width: 92,
         height: 84,
-    }
+    },
+
+    svgArrowFav: {
+        border: 'none',
+    },
+
+    btnYellow: {
+        fill: constantsStyles.yellow,
+    },
+
+    btnWhite: {
+        fill: constantsStyles.white,
+    },
 }
 
 export const useSpriteStyles = createUseStyles(SpriteStyles, {name: 'Sprite'})

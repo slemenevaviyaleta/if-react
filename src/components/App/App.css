@@ -1,113 +1,65 @@
-@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap";
+@import url('../fonts/fonts.css');
 
 :root {
-  --col-width: calc(100% / 14);
+  --white: #ffffff;
+  --yellow: #f5bd41;
+  --stroke-color: #f3f3f4;
+  --blue: #10367c;
+  --accent-blue: #3077c6;
+  --bg-color: #eaf0f9;
+  --text-color: #383838;
+  --secondary-text: #bfbfbf;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --col-width: calc(100% / 12);
 }
 
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
-  list-style-type: none;
+  font-family: 'Roboto', sans-serif;
 }
 
-body {
-  font-family: Roboto, sans-serif;
-  height: 100%;
-}
-
-.col-lg-1 {
-  width: var(--col-width);
-}
-
-.col-lg-2 {
-  width: calc(var(--col-width) * 2);
-}
-
-.col-lg-3 {
-  width: calc(var(--col-width) * 3);
-}
-
-.col-lg-4 {
-  width: calc(var(--col-width) * 4);
-}
-
-.col-lg-5 {
-  width: calc(var(--col-width) * 5);
-}
-
-.col-lg-6 {
-  width: 50%;
-}
-
-.col-lg-7 {
-  width: calc(var(--col-width) * 7);
-}
-
-.col-lg-8 {
-  width: calc(var(--col-width) * 8);
-}
-
-.col-lg-9 {
-  width: calc(var(--col-width) * 9);
-}
-
-.col-lg-10 {
-  width: calc(var(--col-width) * 10);
-}
-
-.col-lg-11 {
-  width: calc(var(--col-width) * 11);
-}
-
-.col-lg-12 {
-  width: calc(var(--col-width) * 12);
-}
-
-.col-lg-13 {
-  width: calc(var(--col-width) * 13);
-}
-
-.col-lg-14 {
-  width: 100%;
-}
-
-.App {
+.text__center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  color: var(--text-color);
+  font-size: 40px;
+  font-weight: var(--font-medium);
+  margin-bottom: 105px;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.title:hover:after {
+  display: inline-block;
+  content: '';
+  width: 100px;
+  height: 4px;
+  background-color: var(--yellow);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 500%);
+  animation: title__underline 250ms ease-in-out;
+}
+
+@keyframes title__underline {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.description {
+  font-size: 24px;
+  font-weight: var(--font-regular);
+  color: var(--text-color);
 }

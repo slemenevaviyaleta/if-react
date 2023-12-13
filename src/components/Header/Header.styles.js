@@ -1,4 +1,5 @@
 import {createUseStyles} from "react-jss";
+import {constantsStyles} from "../сonstants/Constants.styles";
 
 const HeaderStyles = {
     header: {
@@ -27,13 +28,14 @@ const HeaderStyles = {
     headerMenuButtons: {
         display: 'flex',
         gap: 24,
+        border: 'none',
     },
 
     headerLink: {
-        color: 'var(--white)',
+        color: constantsStyles.white,
         textDecoration: 'none',
         fontSize: 24,
-        lineHeight: 'var(--unitless-value)',
+        lineHeight: constantsStyles.unitlessValue,
         display: 'inherit',
         position: 'relative',
 
@@ -41,7 +43,7 @@ const HeaderStyles = {
             content: '""',
             position: 'absolute',
             height: 3,
-            backgroundColor: 'var(--yellow)',
+            backgroundColor: constantsStyles.yellow,
             width: 50,
             top: '132%',
             right: '50%',
@@ -50,16 +52,12 @@ const HeaderStyles = {
     },
 
     headerBtn: {
-        background: 'transparent',
         border: 'none',
+        backgroundColor: 'transparent',
 
         '&:last-child': {
             display: 'none',
         },
-    },
-
-    'btn-yellow .svg-account': {
-        fill: 'var(--yellow)',
     },
 }
 

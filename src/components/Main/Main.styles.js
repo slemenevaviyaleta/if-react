@@ -1,12 +1,14 @@
 import {createUseStyles} from "react-jss";
+import {constantsStyles} from "../сonstants/Constants.styles";
 
 const MainStyles = {
     main: {
-        backgroundImage: `url('./background.png')`,
+        backgroundImage: 'url(' + './background.png' + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         paddingTop: 51,
-        paddingBottom: 'var(--container-pad-btm-top)',
+        paddingBottom: constantsStyles.containerPadBtmTop,
+        zIndex: -1,
     },
 };
 

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Modal } from '../Modal/Modal';
+import React, {useState} from 'react';
+import {Modal} from '../Modal/Modal';
 import {useHeaderStyles} from "./Header.styles";
 import {useSpriteStyles} from "../Sprite/Sprite.styles";
+import {Dropdown} from "../Dropdown/Dropdown";
 
 export const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,13 +13,14 @@ export const Header = () => {
 
     const classes = useHeaderStyles();
     const svg = useSpriteStyles();
+    const btnColorClass = isModalOpen ? svg.btnYellow : svg.btnWhite;
 
     return (
         <header className={classes.header}>
             <nav className={classes.headerNavbar}>
                 <div className={classes.headerLogo}>
                     <svg className={svg.svgLogo}>
-                        <use href="#logo" />
+                        <use href="#logo"/>
                     </svg>
                 </div>
                 <div className={classes.headerMenu}>
@@ -33,26 +35,27 @@ export const Header = () => {
                     <div className={classes.headerMenuButtons}>
                         <a href="#!" className={classes.headerBtn}>
                             <svg className={svg.svgNight}>
-                                <use href="#night" />
+                                <use href="#night"/>
                             </svg>
                         </a>
                         <button
-                            className={`${classes.headerMenuButtons} ${isModalOpen ? 'btn-yellow' : 'btn-white'}`}
+                            className={classes.headerBtn}
                             onClick={toggleModal}
                         >
-                            <svg className={svg.svgAccount}>
-                                <use href="#account" />
+                            <svg className={`${svg.svgAccount} ${btnColorClass}`}>
+                                <use href="#account"/>
+                                <Dropdown />
                             </svg>
                         </button>
                         <a href="#!" className={classes.headerBtn}>
                             <svg className={svg.svgMenu}>
-                                <use href="#menu" />
+                                <use href="#menu"/>
                             </svg>
                         </a>
                     </div>
                 </div>
             </nav>
-            <Modal isOpen={isModalOpen} onClose={toggleModal} />
+            <Modal isOpen={isModalOpen} onClose={toggleModal}/>
         </header>
     );
 };

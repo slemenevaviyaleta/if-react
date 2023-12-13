@@ -1,33 +1,46 @@
-import React from "react";
-import {fetchData, wrapPromise} from "../lib/wrapPromise";
-import {buildHotelsApiUrl} from "../services/constants";
-import {useHotels} from "./useHotels";
-import {useHotelsStyles} from "./Hotels.styles";
+import React from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import './AvailableHotels.css'
+import {Container} from "../Container";
 
-export const Hotels = () => {
-    const hotels = wrapPromise(fetchData(buildHotelsApiUrl()));
-    useHotels()
-    const classes = useHotelsStyles();
 
-    return (
-        <div className={classes.availableHotelsWrapper}>
-            <div className={classes.hotelRow}>
-                {hotels.map((hotel, index) => (
-                    <div className={classes.hotelItem} key={index}>
-                        <img src={hotel.imageUrl} width="295" height="295" style={{marginBottom: '24px'}}
-                             alt={hotel.name}/>
-                        <div className={classes.hotelName} style={{
-                            color: '#3077C6',
-                            fontSize: '24px',
-                            fontWeight: 400,
-                            fontFamily: 'Roboto, sans-serif',
-                            marginBottom: '24px'
-                        }}>{hotel.name}</div>
-                        <div className={classes.hotelLocation}
-                             style={{color: '#BFBFBF', fontSize: '24px'}}>{hotel.country}, {hotel.city}</div>
-                    </div>
-                ))}
-            </div>
+const Available = ({className, hotels}) => (
+        <div className={classNames('description', className)}>
+            {hotels.slice(0, 4).map((item) => (
+                <figure key={item.id} className="homes__item _mobile">
+                    <img className="homes__image" src={item.imageUrl} alt={item.name}/>
+                    <figcaption className="homes__description">{item.name}</figcaption>
+                    <figcaption className="homes__place">
+                        {item.city}, {item.country}
+                    </figcaption>
+                </figure>
+            ))}
         </div>
     )
-}
+;
+
+export default Available;
+
+Available.propTypes = {
+    className: PropTypes.string,
+    hotels: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            imageUrl: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            city: PropTypes.string.isRequired,
+            country: PropTypes.string.isRequired,
+        }),
+    ),
+};
+
+
+
+
+
+
+
+
+
+

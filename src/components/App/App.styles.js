@@ -13,20 +13,6 @@ const appStyles = {
         },
     },
 
-    root: {
-        '--col-width': 'calc(100% / 14)',
-        '--white': '#fff',
-        '--yellow': '#f5bd41',
-        '--dark-blue': '#10367c',
-        '--blue': '#3077c6',
-        '--text-color': '#383838',
-        '--secondary-text': '#bfbfbf',
-        '--background-color': '#eaf0f9',
-        '--circle-color': '#f3f3f4',
-        '--unitless-value': 1.2,
-        '--container-pad-btm-top': 120,
-        '--container-pad-lt-rt': 104,
-    },
 
     body: {
         fontFamily: 'Roboto, sans-serif',

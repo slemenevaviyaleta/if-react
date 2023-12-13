@@ -1,65 +1,191 @@
-.form__field {
-    flex-basis: 25.5%;
-}
-
-.form__field-destination {
-    flex-grow: 1;
-}
-
-.form__field-date {
-    flex-basis: 259px;
-}
-
-.form__input {
+.form__text {
     font-size: 18px;
-    font-weight: 400;
-    line-height: var(--unitless-value);
+    font-weight: var(--font-regular);
     color: var(--text-color);
-    width: 100%;
-    padding: 20px 24px;
-    border-radius: 8px;
-    border: 3px solid transparent;
-    cursor: pointer;
 }
 
-.form__input:hover {
-    outline: none;
-    border: 3px solid var(--yellow);
+.form__last-date {
+    width: 105px;
 }
 
-.form__input-date {
-    padding-left: 22px;
+.form__first-date {
+    width: 105px;
 }
 
-.form__btn {
-    flex-basis: 193px;
-    border-style: none;
-    border-radius: 8px;
-    font-size: 24px;
-    line-height: var(--unitless-value);
-    font-weight: 500;
-    cursor: pointer;
+.header__description {
     color: var(--white);
-    background-color: var(--blue);
-    padding: 20px 57px;
+    width: 100%;
+    padding: 0 0 24px 24px;
+    display: flex;
 }
 
-.form__field-date {
+.header__form {
+    width: 100%;
+    margin-bottom: 120px;
+    border-radius: 8px;
+    background-color: var(--white);
+    display: grid;
+    grid-template-rows: 64px;
+    grid-template-columns: 467px 259px 314px 192px; /* Updated column widths */
     position: relative;
 }
 
-.react-datepicker {
-    position: absolute;
-    top: 100%;
-    left: 0;
+.form__destination-search {
+    display: none;
 }
 
-.form__field-date {
-    position: relative;
+.form__destination {
+    outline: none;
+    padding-left: 24px;
+    border: 3px solid var(--stroke-color);
+    border-right: transparent;
+    border-radius: 8px 0 0 8px;
+    grid-column: 1 / span 1; /* Adjusted column span */
+    grid-row: 1 / span 1;    /* Adjusted row span */
 }
 
-.react-datepicker {
+
+.form__destination:hover,
+.form__date-block:hover,
+.form__booking-block:hover {
+    border: 3px solid var(--yellow);
+    border-radius: 8px;
+    transition: 125ms ease-in-out;
+}
+
+.form__date-block {
+    border: transparent;
+    border-top: 3px solid var(--stroke-color);
+    border-bottom: 3px solid var(--stroke-color);
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    grid-column: 2 / span 1; /* Adjusted column span */
+    grid-row: 1 / span 1;    /* Adjusted row span */
+    padding: 0 24px;
+}
+
+
+.form__date {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    margin: 0;
+}
+
+.form__check-in {
+    display: none;
+}
+
+.form__label {
+    color: var(--white);
+}
+
+.check-in {
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: -55%;
+    left: 43.9%;
+    transform: translate(-50%, -50%);
+}
+
+.destination {
+    position: absolute;
+    top: -55%;
+    left: 12%;
+    transform: translate(-50%, -50%);
+}
+
+.dash {
+    position: absolute;
+    top: -55%;
+    left: 47.8%;
+    transform: translate(-50%, -50%);
+}
+
+.form__check-out {
+    display: none;
+}
+
+
+.check-out {
+    position: absolute;
+    top: -55%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.form__booking-block {
+    border: transparent;
+    border-top: 3px solid var(--stroke-color);
+    border-bottom: 3px solid var(--stroke-color);
+    display: grid;
+    grid-template-columns: 10% 16% 6% 8% 26% 6% 8% 19%;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    padding: 0 14px;
+}
+
+.form__booking {
+    outline: none;
+    border: transparent;
+    border-radius: 8px;
+}
+
+.form__adults-num {
+    text-align: end;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.form__adults {
+    text-align: end;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.form__children-num {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.form__children {
+    grid-column: 5;
+    grid-row: 1;
+}
+
+.form__room-num {
+    text-align: start;
+    grid-column: 7;
+    grid-row: 1;
+}
+
+.form__room {
+    text-align: start;
+    grid-column: 8;
+    grid-row: 1;
+}
+
+.form__border-left,
+.form__border-right {
+    display: none;
+}
+
+.form__button {
+    color: var(--white);
+    background-color: var(--accent-blue);
+    font-size: 24px;
+    font-weight: var(--font-medium);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    grid-column: 4 / span 1; /* Adjusted column span */
+    grid-row: 1 / span 1;    /* Adjusted row span */
+}
+
+.datePicker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-datepicker__input-container {
+    width: auto;
 }

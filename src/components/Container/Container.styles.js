@@ -7,7 +7,8 @@ const containerStyles = {
         margin: '0 auto',
         paddingLeft: 16,
         paddingRight: 16,
-    }
+        paddingBottom: 120,
+}
 }
 
 export const useContainerStyles = createUseStyles(containerStyles, {name: 'Container'});

@@ -1,4 +1,5 @@
 import {createUseStyles} from "react-jss";
+import {constantsStyles} from "../сonstants/Constants.styles";
 
 export const hotelsStyles = {
     hotelRow: {
@@ -17,8 +18,8 @@ export const hotelsStyles = {
         marginBottom: 106,
         fontWeight: 500,
         fontSize: 40,
-        lineHeight: 'var(--unitless -value)',
-        color: 'var (--text - color)',
+        lineHeight: `var(${constantsStyles.unitlessValue})`,
+        color: `var(${constantsStyles.textColor})`,
     }
 }
 
