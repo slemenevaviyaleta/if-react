@@ -1,0 +1,28 @@
+.magnifier {
+  display: none;
+  height: 16px;
+  width: 16px;
+}
+
+.form__city {
+  position: relative;
+  display: flex;
+}
+
+.form__city--search {
+  position: relative;
+  width: 100%;
+  padding-left: 8px;
+  background-color: var(--general-white);
+}
+
+.label {
+  font-size: 18px;
+  color: var(--general-white);
+}
+
+.form__city--label {
+  position: absolute;
+  top: -50px;
+  left: 20px;
+}

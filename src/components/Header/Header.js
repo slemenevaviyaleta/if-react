@@ -1,62 +1,47 @@
-import React, {useState} from 'react';
-import {Modal} from '../Modal/Modal';
-import {useHeaderStyles} from "./Header.styles";
-import {useSpriteStyles} from "../Sprite/Sprite.styles";
-import {Dropdown} from "../Dropdown/Dropdown";
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Account, Logo, Menu, Night } from '../Icons';
+import { SignOut } from '../SignOutModal/SignOut';
+
+import { PATH } from '../../Constants/paths';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from '../../store/slices/theme.slice';
+import { useHeaderStyles } from './Header.styles';
 
 export const Header = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  const signOutRef = useRef(null);
+  const dispatch = useDispatch();
+  const currentTheme = useSelector((state) => state.theme);
+  const theme = currentTheme === 'dark' ? 'light' : 'dark';
+  const nightIconColor = currentTheme === 'dark' ? '#F5BD41' : 'white';
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
+  const switchTheme = () => {
+    dispatch(setTheme(theme));
+    console.log(currentTheme);
+  };
 
-    const classes = useHeaderStyles();
-    const svg = useSpriteStyles();
-    const btnColorClass = isModalOpen ? svg.btnYellow : svg.btnWhite;
+  const classes = useHeaderStyles();
 
-    return (
-        <header className={classes.header}>
-            <nav className={classes.headerNavbar}>
-                <div className={classes.headerLogo}>
-                    <svg className={svg.svgLogo}>
-                        <use href="#logo"/>
-                    </svg>
-                </div>
-                <div className={classes.headerMenu}>
-                    <div className={classes.headerMenuLinks}>
-                        <a href="#!" className={classes.headerLink}>
-                            Stays
-                        </a>
-                        <a href="#!" className={classes.headerLink}>
-                            Attractions
-                        </a>
-                    </div>
-                    <div className={classes.headerMenuButtons}>
-                        <a href="#!" className={classes.headerBtn}>
-                            <svg className={svg.svgNight}>
-                                <use href="#night"/>
-                            </svg>
-                        </a>
-                        <button
-                            className={classes.headerBtn}
-                            onClick={toggleModal}
-                        >
-                            <svg className={`${svg.svgAccount} ${btnColorClass}`}>
-                                <use href="#account"/>
-                                <Dropdown />
-                            </svg>
-                        </button>
-                        <a href="#!" className={classes.headerBtn}>
-                            <svg className={svg.svgMenu}>
-                                <use href="#menu"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-            <Modal isOpen={isModalOpen} onClose={toggleModal}/>
-        </header>
-    );
+  return (
+    <header className={classes.header}>
+      <Link to={PATH.index}>
+        <Logo />
+      </Link>
+      <div className={classes.container}>
+        <div className={classes.text}>
+          <p className={classes.textTitle}>Stays</p>
+          <p className={classes.textTitle}>Attractions</p>
+        </div>
+
+        <div className={classes.images}>
+          <Menu />
+          <Night onClick={switchTheme} color={nightIconColor} />
+          <Account onClick={() => signOutRef.current.open()} />
+        </div>
+      </div>
+      <SignOut ref={signOutRef} />
+    </header>
+  );
 };
-

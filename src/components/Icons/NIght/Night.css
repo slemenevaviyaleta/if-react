@@ -1,0 +1,9 @@
+.header__images--night {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.header__images--night path {
+  fill: currentColor;
+}

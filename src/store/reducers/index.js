@@ -1,17 +1,18 @@
-import {INITIAL_STATE} from "../actions/initialState";
-import {AUTH, USER} from "../actions/actionTypes";
+// import storage from 'redux-persist/lib/storage';
 
-export const rootReducer = (state = INITIAL_STATE, action) => {
-    const newState = structuredClone(state);
+// import { combineReducers } from '@reduxjs/toolkit';
+// import { persistReducer } from 'redux-persist';
+// import { authReducer } from './auth.reducer';
+// import { availableReducer } from './available.reducer';
+// import { userReducer } from './user.reducer';
 
-    switch (action.type) {
-        case AUTH.login:
-        case AUTH.logout:
-            newState.auth.status = action.payload;
-            return newState;
-        case USER.set:
-            return {...newState, user: action.payload};
-        default:
-            return newState;
-    }
-};
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+// };
+
+// export const rootReducer = persistReducer(persistConfig, combineReducers({
+//   auth: authReducer,
+//   user: userReducer,
+//   availableHotels: availableReducer,
+// }));

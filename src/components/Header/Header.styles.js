@@ -1,64 +1,66 @@
-import {createUseStyles} from "react-jss";
-import {constantsStyles} from "../сonstants/Constants.styles";
+import { createUseStyles } from 'react-jss';
+import { animationColor, generalWhite } from '../../index.styles';
 
-const HeaderStyles = {
-    header: {
-        position: 'relative',
-        zIndex: 1,
+export const useHeaderStyles = createUseStyles({
+  header: {
+    display: 'flex',
+    height: 46,
+    maxWidth: 1232,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: '0 auto 150px',
+  },
+
+  container: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: 340,
+    alignItems: 'center',
+  },
+
+  text: {
+    display: 'flex',
+    width: 200,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  textTitle: {
+    position: 'relative',
+    font: {
+      family: 'Roboto, sans-serif',
+      weight: 400,
+      size: 24,
     },
+    color: `${generalWhite}`,
+    alignSelf: 'center',
 
-    headerNavbar: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        marginBottom: 197,
+    '&:hover&:before': {
+      content: '""',
+      position: 'absolute',
+      borderBottom: `5px solid ${animationColor}`,
+      width: '90%',
+      top: '100%',
+      left: '50%',
+      transform: 'translateX(-50%) translateY(100%)',
+      animation: '$lined 100ms linear',
     },
+  },
 
-    headerMenu: {
-        display: 'flex',
-        gap: 48,
-        alignItems: 'center',
+  '@keyframes lined': {
+    from: {
+      transform: 'translateX(-50%) translateY(0%)',
     },
-
-    headerMenuLinks: {
-        display: 'flex',
-        gap: 24,
+    to: {
+      transform: 'translateX(-50%) translateY(100%)',
     },
+  },
 
-    headerMenuButtons: {
-        display: 'flex',
-        gap: 24,
-        border: 'none',
-    },
-
-    headerLink: {
-        color: constantsStyles.white,
-        textDecoration: 'none',
-        fontSize: 24,
-        lineHeight: constantsStyles.unitlessValue,
-        display: 'inherit',
-        position: 'relative',
-
-        '&:hover:after': {
-            content: '""',
-            position: 'absolute',
-            height: 3,
-            backgroundColor: constantsStyles.yellow,
-            width: 50,
-            top: '132%',
-            right: '50%',
-            transform: 'translate(50%, 50%)',
-        },
-    },
-
-    headerBtn: {
-        border: 'none',
-        backgroundColor: 'transparent',
-
-        '&:last-child': {
-            display: 'none',
-        },
-    },
-}
-
-export const useHeaderStyles = createUseStyles(HeaderStyles, {name: 'Header'})
+  images: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 94,
+  },
+});

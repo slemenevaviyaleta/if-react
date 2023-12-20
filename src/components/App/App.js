@@ -1,25 +1,40 @@
-import React from 'react';
-import { Main } from '../Main';
-import { Sprite } from '../Sprite';
-import './App.css';
-import {Container} from "../Container";
-import {Favorites} from "../Favorites";
-import {Router} from "react-router-dom";
+import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { authStatuses } from '../../Constants/authStatuses';
+import { PATH } from '../../Constants/paths';
 
-const App = () => {
-    return (
-        <Router>
-            <>
-                <Sprite />
-                <Container>
-                    <Main />
-                    <Favorites />
-                </Container>
-            </>
-        </Router>
-    );
+import { Advantages } from '../Advantages';
+import { AvailableHotels } from '../AvailableHotels';
+import { Footer } from '../Footer';
+import { Homes } from '../Homes';
+import { TopSection } from '../TopSection';
+
+import './App.css'
+
+export const App = () => {
+  const availableRef = useRef(null);
+  const navigate = useNavigate();
+  const loggedOut = useSelector((state) => state.auth.status !== authStatuses.loggedIn);
+  const availableHotels = useSelector((state) => state.availableHotels);
+
+  const available = Object.values(availableHotels.mutations)[0]?.data;
+  console.log(availableHotels);
+
+  useEffect(() => {
+    if (loggedOut) {
+      navigate(PATH.login);
+    }
+    availableHotels && availableRef?.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [loggedOut, navigate, availableHotels]);
+
+  return (
+    <>
+      <TopSection />
+      {available && <AvailableHotels ref={availableRef} />}
+      <Advantages />
+      <Homes />
+      <Footer />
+    </>
+  );
 };
-
-export default App;
-
-
