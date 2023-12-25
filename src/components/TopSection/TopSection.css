@@ -1,35 +1,30 @@
-.top-section {
-    margin-bottom: 120px;
+:root {
+  --general-white: white;
 }
 
-.top-section__title {
-    margin-bottom: 145px;
-    font-weight: 500;
-    font-size: 50px;
-    line-height: var(--unitless-value);
-    color: var(--white);
-    white-space: pre-line;
+.main__wrapper {
+  background: url('../Icons/castelmezzano-1979546 1.svg') no-repeat, fixed;
+  background-size: cover;
+  height: 900px;
+  min-height: 100vh;
 }
 
-.new-line {
-    display: block;
+.main {
+  margin: 0 auto;
+  padding-top: 50px;
+  max-width: 1232px;
 }
 
-.top-section__form__label {
-    display: flex;
-    color: var(--white);
-    gap: 221px;
-    margin-left: 24px;
-    font-size: 18px;
-    line-height: var(--unitless-value);
-    margin-bottom: 24px;
+.title-text {
+  font-weight: 500;
+  font-size: 50px;
+  color: var(--general-white);
+  margin-top: 200px;
+  margin-bottom: 145px;
 }
-
-.top-section__form {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 20px;
-    background-color: var(--white);
-    border-radius: 8px;
-    max-height: 68px;
+.apps {
+  display: flex;
+  width: 270px;
+  justify-content: space-between;
+  margin: 120px auto;
 }
